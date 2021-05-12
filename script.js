@@ -36,6 +36,8 @@ function writePassword() {
   passwordText.value = password;
 }
 
+//Beginning of the logic to figure out your password
+
 function generatePassword() {
   //User input prompts
   enter = parseInt(prompt("How many Characters would you like your password to contain?"));
@@ -51,9 +53,9 @@ if (!enter) {
   confirmLowercase = window.confirm ("will this contain lowercase letters?");
   confirmUppercase = window.confirm ("Will this contain uppercase letters?");
  };
- //conditional statments for each choice of what your password will contain 
  
-if (!confirmNumber && !confirmCharacter && !confirmLowercase && !confirmUppercase) {
+ //conditional statments for each choice of what your password will contain 
+ if (!confirmNumber && !confirmCharacter && !confirmLowercase && !confirmUppercase) {
   alert("Please choose criteria");
 }
 else if (confirmCharacter && confirmNumber && confirmLowercase && confirmUppercase) {
@@ -109,7 +111,7 @@ var password = [];
         var pickChoices = choices[Math.floor(Math.random() * choices.length)];
         password.push(pickChoices);
     }
-// coverts password to a string
+// changes password array to a string
         var pw = password.join("");
     UserInput(pw);
     return pw;
