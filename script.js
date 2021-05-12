@@ -1,7 +1,6 @@
 // Assignment Code
 // Variables for the user to input
 
-var generateBtn = document.querySelector("#generate");
 var enter = 0;
 var confirmNumber = true;
 var confirmCharacter = true;
@@ -21,6 +20,9 @@ var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
 
 var choices = [];
 
+
+//Code to link the generate button to javascript
+var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -48,7 +50,7 @@ if (!enter) {
   confirmCharacter = window.confirm ("Will this contain special characters?");
   confirmLowercase = window.confirm ("will this contain lowercase letters?");
   confirmUppercase = window.confirm ("Will this contain uppercase letters?");
- }
+ };
  //conditional statments for each choice of what your password will contain 
  
 if (!confirmNumber && !confirmCharacter && !confirmLowercase && !confirmUppercase) {
@@ -98,12 +100,25 @@ choices = lower;
 else if (confirmNumber) {
 choices = number;  
 
-} return(choices);
-} 
+}
 
+var password = [];
 
+// Random selection for variables: 
+    for (var i = 0; i < enter; i++) {
+        var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+        password.push(pickChoices);
+    }
+// coverts password to a string
+        var pw = password.join("");
+    UserInput(pw);
+    return pw;
+  }
 
+  function UserInput(pw) {
+    document.getElementById("password").textContent = pw;
 
+}
 
 
 
